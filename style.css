@@ -1,0 +1,180 @@
+/* ==========================
+   CYM E-commerce UI Library
+   Stylesheet
+   ========================== */
+
+:root {
+  --bg:#fff;
+  --surface:#f7f7f9;
+  --text:#111;
+  --muted:#6b7280;
+  --accent:#b8860b; /* golden-ish for CYM embroidery */
+  --primary:#0b3d91; /* deep navy for contrast */
+  --radius:12px;
+  --gap:1rem;
+  --transition:200ms ease;
+  --container:1100px;
+}
+
+[data-theme="dark"] {
+  --bg:#0b1220;
+  --surface:#071026;
+  --text:#e6eef8;
+  --muted:#9aa6b7;
+}
+
+* { box-sizing:border-box }
+html,body { height:100% }
+body {
+  font-family:Inter, system-ui, sans-serif;
+  margin:0; background:var(--bg); color:var(--text);
+  line-height:1.4; padding:1rem;
+}
+.container { max-width:var(--container); margin:0 auto; padding:1rem }
+
+/* ==========================
+   Header / Nav
+   ========================== */
+.site-header {display:flex;align-items:center;justify-content:space-between;gap:var(--gap)}
+.brand {display:flex;align-items:center;gap:.75rem}
+.brand__logo {
+  width:56px;height:56px;border-radius:8px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  color:white;font-weight:700;font-size:14px
+}
+.brand__title {font-weight:700}
+.nav {display:flex;align-items:center;gap:1rem}
+.nav__list {display:flex;gap:.5rem;list-style:none;padding:0;margin:0}
+.nav__item {position:relative}
+.nav__link {
+  padding:.5rem .75rem;border-radius:8px;
+  text-decoration:none;color:var(--text);display:inline-block
+}
+.nav__link:hover {background:var(--surface);transition:var(--transition)}
+.nav__dropdown {
+  position:absolute;top:calc(100% + .5rem);left:0;
+  background:var(--surface);border-radius:8px;
+  box-shadow:0 8px 24px rgba(2,6,23,0.2);
+  min-width:220px;padding:.5rem;
+  opacity:0;transform:translateY(-6px) scale(.98);
+  pointer-events:none;transition:var(--transition);
+}
+.nav__item--open .nav__dropdown {opacity:1;transform:none;pointer-events:auto}
+.nav__dropdown a {display:block;padding:.5rem;border-radius:6px;text-decoration:none;color:var(--text)}
+.nav__dropdown a:hover {background:rgba(0,0,0,0.05)}
+.nav__mobile-toggle {display:none}
+@media(max-width:880px) {
+  .nav__list{display:none}
+  .nav__mobile-toggle{display:inline-flex}
+}
+
+/* ==========================
+   Hero
+   ========================== */
+.hero {display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center;margin:1.25rem 0}
+.hero__card {
+  background:linear-gradient(180deg, rgba(184,134,11,0.06), transparent);
+  padding:2rem;border-radius:16px
+}
+.hero__title {font-size:28px;margin:0 0 .5rem}
+.hero__subtitle {color:var(--muted);margin:0 0 1rem}
+@media(max-width:880px){.hero{grid-template-columns:1fr}}
+
+/* ==========================
+   Carousel
+   ========================== */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 600px;
+}
+
+.carousel__track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel__slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel__img {
+  width: 100%;
+  display: block;
+}
+
+.carousel__controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  margin-top: .5rem;
+}
+
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #bbb;
+  border: none;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.carousel__dot--active {
+  background: #333;
+}
+
+
+/* ==========================
+   Accordion
+   ========================== */
+.accordion {background:var(--surface);padding:1rem;border-radius:12px}
+.accordion__item {border-radius:8px;margin-bottom:.5rem;overflow:hidden}
+.accordion__summary {display:flex;justify-content:space-between;align-items:center;padding:.75rem;cursor:pointer}
+.accordion__panel {max-height:0;overflow:hidden;padding:0 .75rem;transition:max-height 320ms ease}
+.accordion__item--open .accordion__panel {padding:.75rem;max-height:240px}
+
+/* ==========================
+   Product Grid & Table
+   ========================== */
+.grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.product {background:var(--surface);padding:1rem;border-radius:12px;display:flex;flex-direction:column;gap:.5rem}
+.product__img {height:160px;border-radius:8px;object-fit:cover;width:100%}
+.product__title {font-weight:700}
+.product__price {color:var(--accent);font-weight:700}
+.product__actions {display:flex;gap:.5rem}
+.table-wrap {overflow:auto;background:var(--surface);border-radius:12px;padding:.5rem}
+table {width:100%;border-collapse:collapse}
+th,td {padding:.5rem;text-align:left}
+th {cursor:pointer}
+.pager {display:flex;gap:.5rem;align-items:center;justify-content:flex-end;padding:.5rem}
+
+/* ==========================
+   Modal
+   ========================== */
+.modal {position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.5);z-index:1000;opacity:0;pointer-events:none}
+.modal--open {opacity:1;pointer-events:auto}
+.modal__dialog {background:var(--bg);padding:1rem;border-radius:12px;max-width:720px;width:100%;box-shadow:0 12px 40px rgba(2,6,23,0.35)}
+
+/* ==========================
+   Multi-step Form
+   ========================== */
+.form {background:var(--surface);padding:1rem;border-radius:12px}
+.form__controls {display:flex;gap:.5rem;justify-content:flex-end;padding-top:.5rem}
+.hidden {display:none}
+
+/* Utilities */
+.flex{display:flex}
+.stack{display:flex;flex-direction:column;gap:.5rem}
+.muted{color:var(--muted)}

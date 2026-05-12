@@ -1,0 +1,139 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CYM Uniforms — E‑commerce</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" id="app">
+    <header class="site-header" role="banner">
+      <div class="brand">
+        <div class="Logo">
+          <img src="scymLogo.jpg"></div>
+        <div>
+          <div class="brand__title">CYM Uniforms</div>
+          <div class="muted">Official store — Uniting Reformed Church of Southern Africa</div>
+        </div>
+      </div>
+
+      <nav class="nav" role="navigation" aria-label="Primary navigation">
+        <button class="nav__mobile-toggle btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+        <ul class="nav__list" id="primary-nav">
+          <li class="nav__item" data-has-dropdown>
+            <a class="nav__link" href="#">Uniforms</a>
+            <div class="nav__dropdown">
+              <a href="#">Ladies Formal</a>
+              <a href="#">Ladies Casual</a>
+              <a href="#">Men Formal</a>
+              <a href="#">Men Casual</a>
+            </div>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="#products">Products</a></li>
+          <li class="nav__item"><a class="nav__link" href="#faq">FAQ</a></li>
+          <li class="nav__item"><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+        <div class="flex" style="gap:.5rem;align-items:center">
+          <button id="themeToggle" class="btn">🌓</button>
+          <button id="cartBtn" class="btn">Cart (0)</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero__card">
+          <h1 class="hero__title">Official CYM Uniform Store</h1>
+          <p class="hero__subtitle">Formal and casual uniforms, hymn books, Bibles, with embroidered CYM badge in golden thread.</p>
+        </div>
+
+        <aside>
+          <div class="carousel" id="mainCarousel">
+            <div class="carousel__track" data-index="0">
+              <div class="carousel__slide"><img src="images/ladies-formal.jpg" alt="Ladies formal uniform" class="carousel__img" /></div>
+              <div class="carousel__slide"><img src="images/cym-badge.jpg" alt="CYM badge closeup" class="carousel__img" /></div>
+              <div class="carousel__slide"><img src="images/tshirt.jpg" alt="Casual T-shirt" class="carousel__img" /></div>
+            </div>
+            <div class="carousel__controls">
+              <button class="btn carousel__prev">◀</button>
+              <button class="btn carousel__next">▶</button>
+            </div>
+            <div class="carousel__dots"></div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Products -->
+      <section id="products">
+        <h2>Featured Products</h2>
+        <div class="grid" id="productGrid"></div>
+        <h3>Product Catalog</h3>
+        <div class="table-wrap">
+          <table id="productTable">
+            <thead>
+              <tr>
+                <th data-key="name">Name</th>
+                <th data-key="category">Category</th>
+                <th data-key="price">Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="pager" id="tablePager"></div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <h2>FAQ</h2>
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion__item">
+            <div class="accordion__summary">What sizes are available?</div>
+            <div class="accordion__panel">Sizes from XS to 3XL.</div>
+          </div>
+          <div class="accordion__item">
+            <div class="accordion__summary">Shipping and returns</div>
+            <div class="accordion__panel">14-day returns accepted.</div>
+          </div>
+        </div>
+      </section>
+
+          </div>
+          <div data-step="2" class="form__step hidden">
+            <label>Address <input name="address" required /></label>
+            <label>City <input name="city" required /></label>
+          </div>
+          <div data-step="3" class="form__step hidden">
+            <label>Payment <select name="payment"><option>Card</option><option>Bank Transfer</option></select></label>
+          </div>
+          <div class="form__controls">
+            <button type="button" id="prevStep" class="btn hidden">Back</button>
+            <button type="button" id="nextStep" class="btn">Next</button>
+            <button type="submit" id="submitBtn" class="btn hidden">Place Order</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal" id="productModal">
+      <div class="modal__dialog">
+        <button class="btn" id="modalClose">Close</button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <footer id="contact">
+      <small class="muted">© CYM Uniform Store</small>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
